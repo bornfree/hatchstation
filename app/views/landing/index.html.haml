@@ -1,0 +1,63 @@
+= content_for :start do
+  .centered
+    #tagline
+      TAKING NAPKIN IDEAS TO SCALABLE & PROFITABLE VENTURES
+    %button.btn.btn-large#get_started
+      GET STARTED
+
+=content_for :process do
+  .container
+    .row
+      .span12
+        #tiles
+          .tile#tile1
+            .faceup
+              %i.icon-lightbulb
+              %p IDEA
+            .facedown
+              Tell us your world changing idea and we'll tell you how to bring it to life with the latest technology and trends
+
+          .tile#tile2
+            .faceup
+              %i.icon-pencil
+              %p DESIGN
+            .facedown
+              Set the vision and watch your application unfold into reality through our creative design process
+          .tile#tile3
+            .faceup
+              %i.icon-cogs
+              %p DEVELOPMENT
+            .facedown
+              Use nothing but the best tools. And prepare for scale and performance. Right from day one.    
+          .tile#tile4
+            .faceup
+              %i.icon-beer
+              %p SATISFACTION
+            .facedown
+              We put our money where our mouth is. So you’ll know what’s a job well done.
+
+= content_for :team do
+  .container
+    .row
+      .span12
+        .centered
+          %h3 MEET THE TEAM
+      .span10.offset1
+        -@team.each_slice(4).each do |set|
+          .row-fluid  
+            -set.each do |member|
+              .span3
+                .member
+                  .faceup
+                    =image_tag "avatar.jpg"
+                  .facedown
+                    %p.name= member[:name]
+                    %p.role= member[:role]
+                    .links
+                      =link_to member[:twitter] do
+                        %i.icon-twitter
+                      =link_to member[:github] do  
+                        %i.icon-github
+
+
+

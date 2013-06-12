@@ -1,0 +1,252 @@
+@mixin border_radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin no_box_shadow{
+  -webkit-box-shadow: none ;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+@mixin no_border{
+  border: none;
+}
+
+@mixin css_transition($property, $duration){
+  -webkit-transition:$property $duration ease-in;  
+  -moz-transition:$property $duration ease-in;  
+  -o-transition:$property $duration ease-in;  
+  transition:$property $duration ease-in;
+}
+
+@mixin override_gradient_vertical {
+  background-image: none;
+  background-image: none;
+  background-image: none;
+  background-image: none;
+  background-image: none;
+  background-image: none;
+  background-repeat: no-repeat;
+  filter: none;
+}
+
+@mixin button_gradient($start, $end){
+  background: $start; /* Old browsers */
+  background: -moz-linear-gradient(top, $start 0%, $end 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$start), color-stop(100%,$end)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, $start 0%,$end 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, $start 0%,$end 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, $start 0%,$end 100%); /* IE10+ */
+  background: linear-gradient(to bottom, $start 0%,$end 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start', endColorstr='$end',GradientType=0 ); /* IE6-9 */
+}
+@mixin button_properties{
+  color: #FFF;
+  font-size: 12px;
+  font-weight: 600;
+  text-shadow: none;
+  border: none;
+  letter-spacing: 1.5px;
+  @include border_radius(4px);
+}
+
+@mixin centered{
+  text-align: center;
+}
+
+.centered{
+  text-align: center;
+}
+/* Elements */
+
+body{
+
+  font-family: 'Open Sans';
+
+  .navbar{
+    margin-bottom: 0px;
+    overflow: hidden;
+
+    .navbar-inner{
+      background: #222;
+      min-height: 60px;
+      @include no_border;
+      @include no_box_shadow;
+      @include border_radius(0px);
+
+
+      .brand{
+        padding-top: 15px;
+        color: #FFF;
+        text-shadow: none;
+        font-weight: bold;
+      }
+      .top_link{
+        padding-top: 10px;
+        padding-left: 20px;
+        a{
+          color: #FFF;
+          text-decoration: none !important;
+          font-weight: 600;
+          
+          p{
+            font-weight: normal;
+            font-size: 11px;
+            color: #AAA;
+            @include css_transition(color, 0.1s);
+          }
+          &:hover{
+            p{
+              color: #FFF;
+            }
+          }  
+        }
+        
+
+      }
+    }
+  }
+
+  #start{
+    background: #BCB7B4;
+    height: 500px;
+    @include centered;
+    
+    #tagline{
+      font-size: 15px;
+      padding-top: 40px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    #get_started{
+      margin-top:350px;
+      @include button_gradient(#fc6b00,#ff5000);
+      @include button_properties;
+
+      &:hover{
+        @include button_gradient(#FC8200,#FF7200);
+      }
+      
+    }
+  }
+
+  #process{
+
+    padding-top: 50px;
+    min-height: 200px;
+
+    #tiles{
+
+      #tile1{
+        background: #F95201
+      }
+      #tile2{
+        background: #FF6B01
+      }
+      #tile3{
+        background: #FF931A
+      }
+      #tile4{
+        background: #FFB246
+      }
+      .tile{
+        float:left;
+        width:25%;
+        background: #DDD;
+        height: 200px;
+        cursor: default;
+        @include centered;
+
+        .faceup{
+          color:white;
+          padding: 0px 20px;
+          margin-top: 70px;
+          p{
+            font-weight: 600;
+            font-size: 16px;
+          }
+          i{
+            clear: both;
+            font-size: 60px;
+          }
+          
+        }
+
+        .facedown{
+            display: none;
+            color: #333;
+            font-weight: 600;
+            font-size:12px;
+            padding:0px 50px;
+            margin-top: -80px;
+          }
+
+        &:hover{
+          background: white !important;
+          -webkit-transition: background-color 150ms linear;
+          -moz-transition: background-color 150ms linear;
+          -o-transition: background-color 150ms linear;
+          -ms-transition: background-color 150ms linear;
+          transition: background-color 150ms linear;
+
+          .facedown{
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  #team{
+
+    padding-top: 50px;
+
+    .member{
+      height: 140px;
+      width: 140px;
+      margin: 0px auto;
+      overflow: hidden;
+      margin-top: 30px;
+      cursor: default;
+      @include centered;
+      @include border_radius(50%);
+      
+      .facedown{
+        visibility: hidden;
+        margin-top: -110px;
+        p.name{
+          font-size: 10px; 
+          font-weight: 600;
+        }
+        p.role{
+          font-size: 14px;
+          font-weight: 600;
+        }
+        .links{
+          a{
+            text-decoration: none;
+            i{
+              color: #F95200;
+              font-size: 20px;
+            }
+          }
+        }
+
+      }
+
+      &:hover{
+        background: #FACD00;
+
+        .facedown{
+          visibility: visible;
+        }
+        .faceup{
+          visibility: hidden;
+        }
+      }
+    }
+    
+  }
+}

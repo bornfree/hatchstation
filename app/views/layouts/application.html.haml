@@ -1,0 +1,42 @@
+!!!
+%html
+  %head
+    %title Hatchstation
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    .navbar
+      .navbar-inner
+        .container
+          .row
+            .span2.offset2
+              %a.brand{:href => "/"} HATCHSTATION
+            .span6.offset2
+              .row-fluid
+                .span3.top_link
+                  =link_to "#" do 
+                    SEE
+                    %p what we have built
+                .span3.top_link
+                  =link_to "#" do 
+                    KNOW
+                    %p who we are
+                .span3.top_link
+                  =link_to "#" do 
+                    BROWSE
+                    %p the case studies
+                .span3.top_link
+                  =link_to "#" do 
+                    GET
+                    %p in touch
+    #start
+      = yield :start
+    #process
+      = yield :process
+    #built
+      = yield :built
+    #team
+      = yield :team
+    #contact
+      = yield :contact
