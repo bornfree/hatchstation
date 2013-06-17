@@ -110,12 +110,12 @@ body{
   }
 
   #start{
-    background: #BCB7B4;
+    background: url("/assets/bg.png");
     height: 500px;
     @include centered;
     
     #tagline{
-      font-size: 15px;
+      font-size: 20px;
       padding-top: 40px;
       font-weight: 600;
       letter-spacing: 1px;
@@ -155,14 +155,16 @@ body{
         float:left;
         width:25%;
         background: #DDD;
-        height: 200px;
+        height: 220px;
         cursor: default;
+        
         @include centered;
 
         .faceup{
+          border-left: 1px solid white;
           color:white;
-          padding: 0px 20px;
-          margin-top: 70px;
+          height: 100%;
+          padding: 70px 20px;
           p{
             font-weight: 600;
             font-size: 16px;
@@ -180,7 +182,7 @@ body{
             font-weight: 600;
             font-size:12px;
             padding:0px 50px;
-            margin-top: -80px;
+            margin-top: -280px;
           }
 
         &:hover{
@@ -199,32 +201,128 @@ body{
     }
   }
 
+  #built{
+    
+    margin-top: 50px;
+
+    .facedown{
+      display: none;
+    }
+
+    #b_j, #b_pv,#b_s,#b_g, #b_sg,#b_ae,#b_a, #b_v, #b_e, #b_p{
+      float:left;
+      overflow: hidden;
+      
+      //background: #BEDB39;
+
+      p{
+        padding: 10px;
+        font-size:16px;
+        text-transform: uppercase;
+      }
+      .desc{
+        padding:10px 15px;
+        font-size: 13px;
+      }
+    }
+
+    #b_j, #b_s, #b_g, #b_a, #b_v, #b_e, #b_p{
+      &:hover{
+          .facedown{
+            display:block;
+          }
+          .faceup{
+            display: none;
+          }
+        }
+    }
+
+    #b_j{
+      height: 300px;
+      border-top: 1px solid #FFF;
+    }
+    #b_j, #b_ae, #b_sg, #b_pv{
+      width: 25%;
+    }
+    #b_ae, #b_sg, #b_pv{
+      height: 300px;
+    }
+    #b_s, #b_g, #b_a, #b_v, #b_e, #b_p{
+      height: 50%;
+      width: 100%;
+      border-left: 1px solid #FFF;
+      border-top: 1px solid #FFF;
+    }
+
+    #b_j{
+      background: #FFE838;
+    }
+    #b_a{
+      background: #FFCF24;
+    }
+    #b_e{
+      background: #FAE247;
+    }
+    #b_s{
+      background: #FFDB29;
+    }
+    #b_g{
+      background: #FFE347;
+    }
+    #b_p{
+      background: #FFF242;
+    }
+    #b_v{
+      background: #FFC91A;
+    }
+  }
+
   #team{
 
     padding-top: 50px;
 
     .member{
-      height: 140px;
-      width: 140px;
+      height: 100px;
+      width: 100px;
       margin: 0px auto;
       overflow: hidden;
-      margin-top: 30px;
+      margin-top: 2px;
       cursor: default;
       @include centered;
-      @include border_radius(50%);
+      border-left: 2px solid #FFF;
+      float: left;
+      width: 12%;
+      background: #EEE;
       
       .facedown{
-        visibility: hidden;
-        margin-top: -110px;
+        display: none;
+
+        .links{
+          position: relative;
+          top:-62px;
+          right: -42px;
+          a{
+            text-decoration: none;
+            i{
+              color: #F95200;
+              font-size: 20px;
+            }
+          }
+        }
+      }
+      .faceup{
         p.name{
           font-size: 10px; 
           font-weight: 600;
         }
         p.role{
-          font-size: 14px;
+          font-size: 12px;
           font-weight: 600;
         }
         .links{
+          position: relative;
+          top: 16px;
+          right: -42px;
           a{
             text-decoration: none;
             i{
@@ -237,13 +335,12 @@ body{
       }
 
       &:hover{
-        background: #FACD00;
 
         .facedown{
-          visibility: visible;
+          display: block;
         }
         .faceup{
-          visibility: hidden;
+          display: none;
         }
       }
     }

@@ -9,6 +9,7 @@
   .container
     .row
       .span12
+        %h3.centered OUR PROCESS
         #tiles
           .tile#tile1
             .faceup
@@ -36,28 +37,92 @@
             .facedown
               We put our money where our mouth is. So you’ll know what’s a job well done.
 
+= content_for :built do
+  .container
+    .row
+      .span12
+        %h3.centered OUR WORK
+        #b_j
+          .faceup
+            %p Jobhuk
+            .desc Disrupting the hiring industry. One social referral at a time.
+          .facedown
+            %a{:target => "_blank", :href => "http://www.jobhuk.com"}
+              = image_tag "jobhuk.jpg" 
+        #b_ae
+          #b_a
+            .faceup
+              %p Airwala
+              .desc A simple, no-nonsense approach to booking flights worldwide.
+            .facedown
+              %a{:target => "_blank", :href => "http://www.airwala.com"}
+                = image_tag "airwala.png"
+          #b_e
+            .faceup
+              %p Ez feed
+              .desc
+            .facedown
+              = image_tag "ezfeed.png"
+        #b_sg
+          #b_s
+            .faceup 
+              %p Senti
+              .desc Your daily emotion tracker. In your pocket.
+            .facedown
+              %a{:target => "_blank", :href => "http://www.senti.us"}
+                = image_tag "senti.png"
+          #b_g 
+            .faceup
+              %p Gigumes
+              .desc Search and  publish resumes to global audiences
+            .facedown
+              %a{:target => "_blank", :href => "http://www.gigumes.com"}
+                = image_tag "gigumes.png"
+        #b_pv
+          #b_p 
+            .faceup
+              %p Perfect Pet Match
+              .desc Full blown animal shelter management and pet discovery platform for the USA.
+            .facedown
+              %a{:target => "_blank", :href => "http://beta.perfectpetmatch.com"}
+                = image_tag "ppm.png"
+          #b_v 
+            .faceup
+              %p Vollaa
+              .desc
+            .facedown
+              %a{:target => "_blank", :href => "http://www.vollaa.com"}
+                = image_tag "vollaa.png"
+
 = content_for :team do
   .container
     .row
       .span12
-        .centered
-          %h3 MEET THE TEAM
-      .span10.offset1
-        -@team.each_slice(4).each do |set|
-          .row-fluid  
-            -set.each do |member|
-              .span3
-                .member
-                  .faceup
-                    =image_tag "avatar.jpg"
-                  .facedown
-                    %p.name= member[:name]
-                    %p.role= member[:role]
-                    .links
-                      =link_to member[:twitter] do
-                        %i.icon-twitter
-                      =link_to member[:github] do  
-                        %i.icon-github
+        %h3.centered MEET THE TEAM
+      .span8.offset2.centered
+        
+        %p We are an organization helping launch napkin ideas into market ready and scalable solutions with iterative lean principles. We have been there, done that and love doing it again everyday. We are great lovers of Ruby on Rails and iOS and practice Agile/Scrum methodologies. Everyone here is a co-founder and has a unique skill to drive his own way and we expect the culture to keep alive for next decade.
+
+        %p We help startups launch their initial MVP by discounting our rates in exchange of equity.
+      .span12
+        -@team.each do |member|
+          .member
+            
+            .faceup
+              %p.name= member[:name]
+              %p.role= member[:role]
+              .links
+                =link_to member[:twitter] do
+                  %i.icon-twitter
+                =link_to member[:github] do  
+                  %i.icon-github
+            .facedown
+              =image_tag "avatar.jpg"
+              .links
+                =link_to member[:twitter] do
+                  %i.icon-twitter
+                =link_to member[:github] do  
+                  %i.icon-github
 
 
 
