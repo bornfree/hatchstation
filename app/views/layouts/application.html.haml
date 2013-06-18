@@ -15,11 +15,11 @@
             .span6.offset2
               .row-fluid
                 .span3.offset3.top_link
-                  =link_to "#" do 
+                  =link_to "#built" do 
                     SEE
                     %p what we have built
                 .span3.top_link
-                  =link_to "#" do 
+                  =link_to "#team" do 
                     KNOW
                     %p who we are
                 /
@@ -28,9 +28,10 @@
                       BROWSE
                       %p the case studies
                 .span3.top_link
-                  =link_to "#" do 
+                  =link_to "#contact" do 
                     GET
                     %p in touch
+
     #start
       = yield :start
     #process
@@ -39,5 +40,7 @@
       = yield :built
     #team
       = yield :team
+    #quote
+      = yield :quote
     #contact
       = yield :contact

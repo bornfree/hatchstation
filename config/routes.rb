@@ -1,4 +1,6 @@
 Hatchstation::Application.routes.draw do
+
+  match '/quote' => 'landing#quote', :as => :quote
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

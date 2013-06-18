@@ -119,9 +119,13 @@ body{
       padding-top: 40px;
       font-weight: 600;
       letter-spacing: 1px;
+      line-height: 30px;
+      margin: 0 auto;
+      padding-top: 140px;
+      width: 300px;
     }
     #get_started{
-      margin-top:350px;
+      margin-top:50px;
       @include button_gradient(#fc6b00,#ff5000);
       @include button_properties;
 
@@ -129,6 +133,17 @@ body{
         @include button_gradient(#FC8200,#FF7200);
       }
       
+    }
+    #message{
+      position: absolute;
+      width: 300px;
+      left: 50%;
+      top: 250px;
+      .alert{
+        color: #A1793A;
+        left: -50%;
+        position: relative;
+      }
     }
   }
 
@@ -206,7 +221,10 @@ body{
     margin-top: 50px;
 
     .facedown{
-      display: none;
+      -webkit-transition: margin-top 250ms ease;
+      -moz-transition: margin-top 250ms ease;
+      -o-transition: margin-top 250ms ease;
+      -ms-transition: margin-top 250ms ease;
     }
 
     #b_j, #b_pv,#b_s,#b_g, #b_sg,#b_ae,#b_a, #b_v, #b_e, #b_p{
@@ -226,20 +244,16 @@ body{
       }
     }
 
-    #b_j, #b_s, #b_g, #b_a, #b_v, #b_e, #b_p{
-      &:hover{
-          .facedown{
-            display:block;
-          }
-          .faceup{
-            display: none;
-          }
-        }
-    }
-
     #b_j{
       height: 300px;
       border-top: 1px solid #FFF;
+      &:hover{
+        .facedown{
+          margin-top: -300px;
+          height: 100%;
+          background: white;
+        }
+      }
     }
     #b_j, #b_ae, #b_sg, #b_pv{
       width: 25%;
@@ -252,28 +266,38 @@ body{
       width: 100%;
       border-left: 1px solid #FFF;
       border-top: 1px solid #FFF;
+      .faceup{
+        height: 100%;
+      }
+      &:hover{
+        .facedown{
+          margin-top: -150px;
+          height: 100%;
+          background: white;
+        }
+      }
     }
 
     #b_j{
-      background: #FFE838;
+      background: #FFCF33;
     }
     #b_a{
-      background: #FFCF24;
+      background: #FFD84D;
     }
     #b_e{
-      background: #FAE247;
+      background: #FFEA61;
     }
     #b_s{
-      background: #FFDB29;
+      background: #FFF261;
     }
     #b_g{
-      background: #FFE347;
+      background: #FFF47A;
     }
     #b_p{
-      background: #FFF242;
+      background: #FCF88D;
     }
     #b_v{
-      background: #FFC91A;
+      background: #FDFBA1;
     }
   }
 
@@ -281,6 +305,11 @@ body{
 
     padding-top: 50px;
 
+    .well{
+      @include no_border;
+      @include no_box_shadow;
+      @include border_radius(0px);
+    }
     .member{
       height: 100px;
       width: 100px;
@@ -296,6 +325,9 @@ body{
       
       .facedown{
         display: none;
+        img{
+          width: 100%;
+        }
 
         .links{
           position: relative;
@@ -314,6 +346,7 @@ body{
         p.name{
           font-size: 10px; 
           font-weight: 600;
+          margin-top:20px;
         }
         p.role{
           font-size: 12px;
@@ -321,7 +354,7 @@ body{
         }
         .links{
           position: relative;
-          top: 16px;
+          top: -5px;
           right: -42px;
           a{
             text-decoration: none;
@@ -344,6 +377,30 @@ body{
         }
       }
     }
-    
   }
+  #quote{
+
+    background: #FACD00;
+    margin-top: 40px;
+
+    .get_a_quote{
+      margin-top:20px;
+      margin-bottom: 20px;
+      @include button_gradient(#3A3637,#181621);
+      @include button_properties;
+
+      &:hover{
+        @include button_gradient(#3D3537,#24212D);
+      }
+      
+    }
+
+    #quote_form input, #quote_form textarea {
+      background: #FFF !important;
+      padding:10px !important;
+      @include no-border;
+      @include border-radius(0px);
+    }
+  }
+
 }

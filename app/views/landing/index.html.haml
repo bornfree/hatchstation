@@ -2,14 +2,20 @@
   .centered
     #tagline
       TAKING NAPKIN IDEAS TO SCALABLE & PROFITABLE VENTURES
-    %button.btn.btn-large#get_started
+    -if flash[:message]
+      #message
+        .alert
+          %button{:type => "button", :class => "close", "data-dismiss" => "alert"}
+          %h4= flash[:status]
+          =flash[:message]
+    %a.btn.btn-large#get_started{:href => "#quote"}
       GET STARTED
 
 =content_for :process do
   .container
     .row
       .span12
-        %h3.centered OUR PROCESS
+        %h3.centered HOW WE DO IT
         #tiles
           .tile#tile1
             .faceup
@@ -41,14 +47,15 @@
   .container
     .row
       .span12
-        %h3.centered OUR WORK
+        %h3.centered WHAT WE'VE BUILT
         #b_j
-          .faceup
+          .faceup{:style => "height: 300px;"}
             %p Jobhuk
             .desc Disrupting the hiring industry. One social referral at a time.
-          .facedown
+          .facedown{:style => "height: 300px;"}
+
             %a{:target => "_blank", :href => "http://www.jobhuk.com"}
-              = image_tag "jobhuk.jpg" 
+              = image_tag "jobhuk.png" 
         #b_ae
           #b_a
             .faceup
@@ -60,7 +67,7 @@
           #b_e
             .faceup
               %p Ez feed
-              .desc
+              .desc Cloudbased SaaS solution for Oil and Gas industry
             .facedown
               = image_tag "ezfeed.png"
         #b_sg
@@ -74,7 +81,7 @@
           #b_g 
             .faceup
               %p Gigumes
-              .desc Search and  publish resumes to global audiences
+              .desc Search and  publish resumes to global audiences.
             .facedown
               %a{:target => "_blank", :href => "http://www.gigumes.com"}
                 = image_tag "gigumes.png"
@@ -89,7 +96,7 @@
           #b_v 
             .faceup
               %p Vollaa
-              .desc
+              .desc Discover dream properties in few clicks.
             .facedown
               %a{:target => "_blank", :href => "http://www.vollaa.com"}
                 = image_tag "vollaa.png"
@@ -99,7 +106,7 @@
     .row
       .span12
         %h3.centered MEET THE TEAM
-      .span8.offset2.centered
+      .span8.offset2.centered.well
         
         %p We are an organization helping launch napkin ideas into market ready and scalable solutions with iterative lean principles. We have been there, done that and love doing it again everyday. We are great lovers of Ruby on Rails and iOS and practice Agile/Scrum methodologies. Everyone here is a co-founder and has a unique skill to drive his own way and we expect the culture to keep alive for next decade.
 
@@ -112,17 +119,66 @@
               %p.name= member[:name]
               %p.role= member[:role]
               .links
-                =link_to member[:twitter] do
+                =link_to "#" do
                   %i.icon-twitter
-                =link_to member[:github] do  
+                =link_to "https://github.com/#{member[:github]}", :target => "_blank" do
                   %i.icon-github
             .facedown
-              =image_tag "avatar.jpg"
+              =image_tag "http://www.gravatar.com/avatar/#{member[:avatar]}?s=200"
               .links
                 =link_to member[:twitter] do
                   %i.icon-twitter
-                =link_to member[:github] do  
+                =link_to "https://github.com/#{member[:github]}", :target => "_blank" do  
                   %i.icon-github
+=content_for :quote do
+  .container
+    .row
+      .span12
+        .centered
+          %h3 KICKSTART YOUR PROJECT NOW!
+          %button.btn.btn-large.get_a_quote{:onclick => "$('#quote_form').slideDown();"}
+            GET A QUOTE
+      .span6.offset3
+        =form_tag quote_path, :method => "post", :class => "hide centered", :id => "quote_form" do |f| 
+          %fieldset
+            %input.input-xlarge{:type=> "text", :placeholder => "Name", :name => "name", :required => true}
+            %input.input-xlarge{:type=> "email", :placeholder => "Email", :name => "email", :required => true}
+            %input.input-xlarge{:type=> "text", :placeholder => "Phone", :name => "phone", :required => true}
+            %textarea.input-xlarge{:rows => 5, :placeholder => "Brief Description", :name => "description", :required => true}
+            %br
+            %button.btn.get_a_quote{:type=> "submit", :value => "submit", :style => "clear:both"} SUBMIT
 
-
+=content_for :contact do
+  .container
+    .row
+      .span12
+        %h3.centered GET IN TOUCH
+      .span4
+        %address
+          %strong US:
+          %br
+          9600 Great Hills Trail, Suite #150W, 
+          %br 
+          Austin, TX 78759
+          %br
+          Email:  
+          %a{:href => "mailto:praneeth.patlola@startupsourcing.com"} Praneeth Patlola
+          %br 
+          %abbr Phone: 
+          +1 (512)-275-6302
+        %address
+          %strong India:
+          %br
+          Flat: 4A, 4th floor, 19/3RT, Lane 2, Street No. 5, 
+          %br 
+          Prakash Nagar, Begumpet, Hyderabad, 500016
+          %br
+          Email:  
+          %a{:href => "mailto:chinnanalimela@startupsourcing.com"} Chinna Nalimela 
+          %br
+          %abbr Phone: 
+          +91-8106141597
+          +91-40-27674725
+      .span5
+        =image_tag "map.png"
 
