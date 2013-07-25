@@ -1,0 +1,50 @@
+.container
+  .row
+    .span10.offset1#portfolio
+      -@products.each_with_index do |product,i|
+        .row
+          - if i %2 == 0
+            .span5.text
+              %h2= product[:name]
+              %h4= product[:tagline]
+              %br
+              %br
+              %p= product[:description]
+            .span5.imagery
+              .carousel.slide{:id => product[:carousel_name] + "_carousel"}
+                
+                / Carousel items
+                .carousel-inner
+                  -product[:images].each_with_index do |image,i|
+                    .item{:class => (i ==0? "active": ""), :style => ("height:350px" if product[:carousel_name].include? "mobile") }
+                      =image_tag image
+                - if product[:images].length >1
+                  %ol.carousel-indicators{:style => ("top:360px" if product[:carousel_name].include? "mobile")}
+                    -product[:images].each_with_index do |image,i|
+                      %li{"data-slide-to" => i, "data-target" => "#" + product[:carousel_name] + "_carousel", :class => (i == 0? "active": "")}
+          -else
+
+            .span5.imagery
+              .carousel.slide{:id => product[:carousel_name] + "_carousel"}
+                
+                / Carousel items
+                .carousel-inner
+                  -product[:images].each_with_index do |image,i|
+                    .item{:class => (i ==0? "active": ""), :style => ("height:350px" if product[:carousel_name].include? "mobile") }
+                      =image_tag image
+                - if product[:images].length >1
+                  %ol.carousel-indicators{:style => ("top:360px" if product[:carousel_name].include? "mobile")}
+                    -product[:images].each_with_index do |image,i|
+                      %li{"data-slide-to" => i, "data-target" => "#" + product[:carousel_name] + "_carousel", :class => (i == 0? "active": "")}
+            .span5.text
+              %h2= product[:name]
+              %h4= product[:tagline]
+              %br
+              %br
+              %p= product[:description]
+        %hr{:style => "margin-top:50px"}
+
+
+
+        
+

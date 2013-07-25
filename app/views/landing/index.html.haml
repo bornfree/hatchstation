@@ -48,6 +48,9 @@
     .row
       .span12
         %h3.centered WHAT WE'VE BUILT
+        %div.centered{:style => "margin-top:-10px;margin-bottom:10px"}
+          =link_to "View complete portfolio", portfolio_path
+      .span12
         #b_j
           .faceup{:style => "height: 300px;"}
             %p Jobhuk
@@ -100,6 +103,7 @@
             .facedown
               %a{:target => "_blank", :href => "http://www.vollaa.com"}
                 = image_tag "vollaa.png"
+      
 
 = content_for :team do
   .container

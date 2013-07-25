@@ -378,6 +378,7 @@ body{
       }
     }
   }
+  
   #quote{
 
     background: #FACD00;
@@ -402,5 +403,51 @@ body{
       @include border-radius(0px);
     }
   }
+  #portfolio{
 
+    margin-top: 100px;
+    .row{
+      margin-top: 50px;
+    }
+    .text{
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+      h1,h4{
+        font-weight: normal;
+        letter-spacing: -0.5px;
+      }
+    }
+    .imagery{
+      a.carousel-control{
+        border:none;
+        color: white;
+        opacity: 1;
+        background: none;
+        i{
+          font-size: 18px;
+          
+        }
+      }
+      .carousel-inner{
+        .item{
+          height: 300px;
+          overflow: hidden;
+          img{
+            margin: 0px auto;
+          }
+        }
+      }
+      .carousel-indicators{
+        top: 320px;
+        left: 48%;
+        top: none;
+        li{
+          background: #FFBA9B;
+        }
+        .active{
+          background: #FF793B !important; 
+        }
+      }
+
+    }
+  }
 }
